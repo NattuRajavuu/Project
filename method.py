@@ -6,4 +6,5 @@ class person:
         print("Hello, my name is " + self.name)
 
 p1 = person("Alwin")
-p1.greet()
+p2 = person("Adil")
+p2.greet()
