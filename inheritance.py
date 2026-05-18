@@ -12,5 +12,5 @@ x.printname()
 class student(person):
     pass
 
-x = student("Alwin", "C B")
+x = student("Adil", "Joby")
 x.printname()
