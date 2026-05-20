@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="todo-card">
+        <header class="todo-header">
+          <div>
+            <h1>Todo List</h1>
+            <p>Simple tasks, clean layout, and smooth interactions.</p>
+          </div>
+          <div class="counters">
+            <span id="total-count">0</span>
+            <span>tasks</span>
+            <span class="divider"></span>
+            <span id="completed-count">0</span>
+            <span>completed</span>
+          </div>
+        </header>
+
+        <section class="todo-input">
+          <input
+            id="task-input"
+            type="text"
+            placeholder="Add a new task and press Enter"
+            autocomplete="off"
+          />
+          <button id="add-button">Add</button>
+        </section>
+
+        <section id="task-list" class="task-list"></section>
+        <div id="empty-state" class="empty-state">
+          <p>No tasks yet.</p>
+          <p>Add your first task to get started.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.initialTasks = {{ tasks | tojson | safe }};
+    </script>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
