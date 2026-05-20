@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}500 | MarvelVerse Explorer{% endblock %}
+{% block content %}
+<section class="admin-stage">
+    <div class="admin-card">
+        <p class="eyebrow">System Fault</p>
+        <h1>500</h1>
+        <p>The archive overloaded. Check the Flask terminal for the stack trace.</p>
+        <a class="glow-button" href="{{ url_for('main.home') }}">Return Home</a>
+    </div>
+</section>
+{% endblock %}

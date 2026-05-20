@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}{{ movie.title }} | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="detail-hero">
+    <div class="container detail-layout {% if not movie.poster_url %}single{% endif %}">
+        {% if movie.poster_url %}
+        <div class="detail-poster poster-detail reveal-card">
+            <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster">
+        </div>
+        {% endif %}
+        <div class="detail-copy">
+            <p class="eyebrow">{{ movie.phase }} · {{ movie.release_year }}</p>
+            <h1>{{ movie.title }}</h1>
+            <p>{{ movie.synopsis }}</p>
+            <div class="movie-score">
+                {% if movie.rating > 0 %}
+                    <strong>{{ movie.rating }}%</strong>
+                    <span>Archive rating</span>
+                {% else %}
+                    <strong>UPCOMING</strong>
+                    <span>Details subject to official release</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="detail-grid three">
+        <article class="info-panel"><p class="eyebrow">Cast</p><h2>Main Cast</h2><p>{{ movie.cast }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Conflict</p><h2>Villain</h2><p>{{ movie.villain }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Stinger</p><h2>Post-Credit</h2><p>{{ movie.post_credit }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Timeline</p><h2>Placement</h2><p>{{ movie.timeline }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Connections</p><h2>Linked Stories</h2><p>{{ movie.connections }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Comics</p><h2>Inspiration</h2><p>{{ movie.comic_inspiration }}</p></article>
+    </div>
+
+    {% if movie.trailer_url and movie.trailer_url|length > 30 %}
+    <section class="trailer-frame">
+        <iframe src="{{ movie.trailer_url }}" title="{{ movie.title }} trailer" allowfullscreen></iframe>
+    </section>
+    {% endif %}
+</section>
+{% endblock %}

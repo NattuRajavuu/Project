@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#16090a"/>
+  <polygon points="0,90 800,0 800,600 0,510" fill="#e62429"/>
+  <polygon points="0,600 800,260 800,600" fill="#f7c948"/>
+  <circle cx="400" cy="255" r="126" fill="#f7c948" stroke="#fff" stroke-width="14"/>
+  <rect x="302" y="214" width="196" height="78" rx="8" fill="#e62429"/>
+  <circle cx="400" cy="404" r="54" fill="#3ad7ff" stroke="#fff" stroke-width="10"/>
+  <text x="400" y="118" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="76" fill="#fff">IRON MAN</text>
+</svg>

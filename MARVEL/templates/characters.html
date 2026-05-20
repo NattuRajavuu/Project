@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% from "components.html" import character_card %}
+{% block title %}Characters | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+    <div class="container">
+        <p class="eyebrow">Character Encyclopedia</p>
+        <h1>Heroes, Villains, Variants</h1>
+        <p>Twenty major profiles with origins, powers, weaknesses, teams, enemies, arcs, MCU appearances, and multiverse variants.</p>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="filter-row">
+        <button class="filter-chip active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="Hero">Heroes</button>
+        <button class="filter-chip" data-filter="Villain">Villains</button>
+        <button class="filter-chip" data-filter="Antihero">Antiheroes</button>
+    </div>
+    <div class="character-grid filter-grid">
+        {% for character in characters %}
+            <div data-category="{{ character.category }}">
+                {{ character_card(character) }}
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

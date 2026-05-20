@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ comic.title }} | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="detail-hero">
+    <div class="container detail-layout single">
+        <div class="detail-copy">
+            <p class="eyebrow">Comic Arc · {{ comic.year }}</p>
+            <h1>{{ comic.title }}</h1>
+            <p>{{ comic.summary }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="detail-grid">
+        <article class="info-panel"><p class="eyebrow">Stakes</p><h2>Major Deaths</h2><p>{{ comic.major_deaths }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Action</p><h2>Important Battles</h2><p>{{ comic.important_battles }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Screen</p><h2>Adaptations</h2><p>{{ comic.adaptations }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Reading</p><h2>Reading Order</h2><p>{{ comic.reading_order }}</p></article>
+    </div>
+    <article class="impact-panel">
+        <p class="eyebrow">Key Characters</p>
+        <h2>{{ comic.key_characters }}</h2>
+    </article>
+</section>
+{% endblock %}

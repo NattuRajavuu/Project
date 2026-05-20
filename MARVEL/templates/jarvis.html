@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}JARVIS | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+    <div class="container">
+        <p class="eyebrow">Bonus Feature</p>
+        <h1>JARVIS Console</h1>
+        <p>A lightweight local assistant for searching the seeded MarvelVerse database and answering guided questions.</p>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="jarvis-console">
+        <div id="jarvis-log" class="jarvis-log">
+            <div class="jarvis-line system">JARVIS online. Ask about power levels, timelines, phases, or reading orders.</div>
+        </div>
+        <form id="jarvis-form" class="jarvis-form">
+            <input id="jarvis-input" type="text" placeholder="Ask JARVIS anything in the archive...">
+            <button class="glow-button" type="submit">Transmit</button>
+        </form>
+        <div class="prompt-row">
+            {% for prompt in prompts %}
+                <button class="prompt-chip" type="button">{{ prompt }}</button>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

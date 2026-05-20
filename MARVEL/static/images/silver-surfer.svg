@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#081018"/>
+  <polygon points="0,80 800,0 800,600 0,520" fill="#3ad7ff" opacity=".72"/>
+  <ellipse cx="400" cy="410" rx="250" ry="36" fill="#dfe6f2" stroke="#fff" stroke-width="10"/>
+  <circle cx="400" cy="210" r="66" fill="#dfe6f2"/>
+  <path d="M400 276v128M335 330h130M360 405l-90 42M440 405l90 42" stroke="#dfe6f2" stroke-width="28" stroke-linecap="round"/>
+  <text x="400" y="94" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="66" fill="#fff">SILVER SURFER</text>
+</svg>

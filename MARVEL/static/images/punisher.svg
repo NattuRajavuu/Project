@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#050506"/>
+  <polygon points="0,0 800,100 800,600 0,520" fill="#262a33"/>
+  <path d="M265 145h270l-34 240-50 28-20 92h-62l-20-92-50-28Z" fill="#fff"/>
+  <circle cx="345" cy="270" r="44" fill="#050506"/>
+  <circle cx="455" cy="270" r="44" fill="#050506"/>
+  <rect x="374" y="340" width="52" height="110" fill="#050506"/>
+  <text x="400" y="96" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="76" fill="#fff">PUNISHER</text>
+</svg>

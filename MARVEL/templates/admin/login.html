@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Admin Login | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="admin-stage">
+    <form class="admin-card" method="post">
+        <p class="eyebrow">Secure Access</p>
+        <h1>Admin Login</h1>
+        <label>Username<input name="username" value="admin" required></label>
+        <label>Password<input name="password" type="password" placeholder="Default: avengers" required></label>
+        <button class="glow-button" type="submit">Enter Dashboard</button>
+    </form>
+</section>
+{% endblock %}

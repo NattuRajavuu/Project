@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% from "components.html" import character_card, movie_card %}
+{% block title %}MarvelVerse Explorer | Home{% endblock %}
+
+{% block content %}
+<section class="hero-zone">
+    <div class="hero-comic-grid" aria-hidden="true">
+        <div class="panel panel-red"></div>
+        <div class="panel panel-gold"></div>
+        <div class="panel panel-blue"></div>
+    </div>
+    <div class="container hero-content">
+        <div class="hero-copy">
+            <p class="eyebrow">Cinematic Comic Encyclopedia</p>
+            <h1>MarvelVerse Explorer</h1>
+            <p class="hero-lead">Dive through heroes, villains, films, shows, comics, timelines, and multiverse fractures in one glowing Python-powered website.</p>
+            <div class="hero-actions">
+                <a class="glow-button" href="{{ url_for('main.characters') }}">Explore Characters</a>
+                <a class="ghost-button" href="{{ url_for('main.timeline') }}">Open Timeline</a>
+            </div>
+        </div>
+        <div class="gauntlet-stage" aria-label="Infinity Gauntlet animation">
+            <div class="gauntlet">
+                <span class="stone red"></span>
+                <span class="stone blue"></span>
+                <span class="stone green"></span>
+                <span class="stone purple"></span>
+                <span class="stone orange"></span>
+                <span class="stone yellow"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="section-heading">
+        <p class="eyebrow">Featured Heroes & Icons</p>
+        <h2>Power Files</h2>
+        <a href="{{ url_for('main.characters') }}">View all</a>
+    </div>
+    <div class="character-grid">
+        {% for character in characters %}
+            {{ character_card(character) }}
+        {% endfor %}
+    </div>
+</section>
+
+<section class="wide-band">
+    <div class="container section-block">
+        <div class="section-heading">
+            <p class="eyebrow">MCU Timeline</p>
+            <h2>Featured Movies</h2>
+            <a href="{{ url_for('main.movies') }}">Full timeline</a>
+        </div>
+        <div class="movie-grid">
+            {% for movie in movies %}
+                {{ movie_card(movie) }}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="section-heading">
+        <p class="eyebrow">Comic Shelf</p>
+        <h2>Legendary Arcs</h2>
+        <a href="{{ url_for('main.comics') }}">Browse comics</a>
+    </div>
+    <div class="shelf-grid">
+        {% for comic in comics %}
+            <a class="shelf-book reveal-card" href="{{ url_for('main.comic_detail', comic_id=comic.id) }}">
+                <span>{{ comic.year }}</span>
+                <h3>{{ comic.title }}</h3>
+                <p>{{ comic.summary }}</p>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

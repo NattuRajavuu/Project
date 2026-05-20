@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#09090d">
+    <title>{% block title %}MarvelVerse Explorer{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="page-shell">
+        <nav class="navbar navbar-expand-lg marvel-nav sticky-top">
+            <div class="container-fluid px-lg-5">
+                <a class="navbar-brand brand-mark" href="{{ url_for('main.home') }}">
+                    <span>MarvelVerse</span>
+                    <small>Explorer</small>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.characters') }}">Characters</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.movies') }}">Movies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.shows') }}">Series</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.comics') }}">Comics</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.timeline') }}">Timeline</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('main.jarvis') }}">JARVIS</a></li>
+                        <li class="nav-item"><a class="nav-link admin-link" href="{{ url_for('admin.dashboard') }}">Admin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="search-command">
+            <div class="container-fluid px-lg-5">
+                <div class="search-box">
+                    <span class="search-icon">⌕</span>
+                    <input id="live-search" type="search" autocomplete="off" placeholder="Search heroes, movies, comics, villains...">
+                    <button id="sound-toggle" class="icon-button" type="button" title="Toggle ambient pulse" aria-label="Toggle ambient pulse">♪</button>
+                    <div id="search-results" class="search-results" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="container mt-3">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} marvel-alert">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="marvel-footer">
+            <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+                <p class="m-0">MarvelVerse Explorer is a fan-made educational encyclopedia project.</p>
+                <p class="m-0">Built with Flask, SQLite, Jinja, CSS, and JavaScript.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

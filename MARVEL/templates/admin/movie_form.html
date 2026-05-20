@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Add Movie | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="container section-block">
+    <form class="data-form" method="post">
+        <p class="eyebrow">Admin</p>
+        <h1>Add Movie</h1>
+        <div class="form-grid">
+            <label>Title<input name="title" required></label>
+            <label>Phase<input name="phase" value="Phase 6" required></label>
+            <label>Release Year<input name="release_year" type="number" value="2026" required></label>
+            <label>Rating<input name="rating" type="number" min="0" max="100" value="0"></label>
+        </div>
+        <label>Synopsis<textarea name="synopsis" rows="3" required></textarea></label>
+        <label>Poster URL<input name="poster_url" placeholder="https://..."></label>
+        <div class="form-grid">
+            <label>Cast<textarea name="cast" rows="3"></textarea></label>
+            <label>Villain<textarea name="villain" rows="3"></textarea></label>
+            <label>Post-Credit<textarea name="post_credit" rows="3"></textarea></label>
+            <label>Timeline<textarea name="timeline" rows="3"></textarea></label>
+            <label>Connections<textarea name="connections" rows="3"></textarea></label>
+            <label>Comic Inspiration<textarea name="comic_inspiration" rows="3"></textarea></label>
+        </div>
+        <label>Trailer Embed URL<input name="trailer_url" placeholder="https://www.youtube.com/embed/..."></label>
+        <button class="glow-button" type="submit">Save Movie</button>
+    </form>
+</section>
+{% endblock %}

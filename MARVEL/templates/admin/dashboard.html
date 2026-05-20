@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+    <div class="container">
+        <p class="eyebrow">Command Deck</p>
+        <h1>Admin Dashboard</h1>
+        <p>Add characters, add movies, edit comics, upload images, and manage timeline nodes.</p>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="admin-actions">
+        <a class="glow-button" href="{{ url_for('admin.add_character') }}">Add Character</a>
+        <a class="ghost-button" href="{{ url_for('admin.add_movie') }}">Add Movie</a>
+        <a class="ghost-button" href="{{ url_for('admin.add_timeline') }}">Add Timeline Node</a>
+        <a class="ghost-button" href="{{ url_for('admin.logout') }}">Logout</a>
+    </div>
+    <div class="stat-grid">
+        {% for label, value in counts.items() %}
+        <article class="stat-card">
+            <strong>{{ value }}</strong>
+            <span>{{ label }}</span>
+        </article>
+        {% endfor %}
+    </div>
+
+    <div class="detail-grid">
+        <article class="info-panel">
+            <p class="eyebrow">Newest</p>
+            <h2>Characters</h2>
+            <ul class="styled-list">
+                {% for character in recent_characters %}
+                    <li>{{ character.name }}</li>
+                {% endfor %}
+            </ul>
+        </article>
+        <article class="info-panel">
+            <p class="eyebrow">Editable</p>
+            <h2>Comics</h2>
+            <ul class="styled-list">
+                {% for comic in recent_comics %}
+                    <li><a href="{{ url_for('admin.edit_comic', comic_id=comic.id) }}">{{ comic.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </article>
+    </div>
+</section>
+{% endblock %}

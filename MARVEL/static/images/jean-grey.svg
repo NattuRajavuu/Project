@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#120914"/>
+  <polygon points="0,0 800,110 800,600 0,500" fill="#e62429"/>
+  <path d="M400 95c62 112 168 146 168 268 0 92-74 164-168 164s-168-72-168-164c0-122 106-156 168-268Z" fill="#f7c948" stroke="#fff" stroke-width="12"/>
+  <path d="M300 380c60-60 140-60 200 0-28 58-172 58-200 0Z" fill="#62f26f"/>
+  <text x="400" y="82" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="72" fill="#fff">JEAN GREY</text>
+</svg>

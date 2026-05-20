@@ -1,0 +1,18 @@
+Step 1: Initialize git in your project folder:git init
+Step 2: Add all files :git add .
+Step 3: Commit Your files: git commit -m "initial commit"
+Step 4: Create a Repository on Github
+
+Go to
+  Github
+
+Click New Repository
+Give a Name
+click create repository
+
+
+Step 5: Connect Local Repo : git remote add origin ""Repository Link""
+
+Step 6: Push your Code:
+  git branch -M main
+git push -u origin main

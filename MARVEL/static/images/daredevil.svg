@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#17080b"/>
+  <polygon points="0,0 800,130 800,600 0,490" fill="#9f1118"/>
+  <path d="M300 210c-40-90-10-138 52-162 0 82 22 122 48 146 26-24 48-64 48-146 62 24 92 72 52 162Z" fill="#e62429" stroke="#fff" stroke-width="10"/>
+  <rect x="270" y="230" width="260" height="220" rx="60" fill="#111" stroke="#e62429" stroke-width="12"/>
+  <text x="400" y="535" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="76" fill="#fff">DAREDEVIL</text>
+</svg>

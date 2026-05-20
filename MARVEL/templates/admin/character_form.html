@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Add Character | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="container section-block">
+    <form class="data-form" method="post" enctype="multipart/form-data">
+        <p class="eyebrow">Admin</p>
+        <h1>Add Character</h1>
+        <div class="form-grid">
+            <label>Name<input name="name" required></label>
+            <label>Alias<input name="alias" required></label>
+            <label>Category<input name="category" value="Hero" required></label>
+            <label>Power Level<input name="power_level" type="number" min="0" max="100" value="75"></label>
+            <label>Image filename<input name="image" value="placeholder.svg"></label>
+            <label>Real image URL<input name="image_url" placeholder="https://..."></label>
+            <label>Upload image<input name="image_upload" type="file" accept="image/*"></label>
+        </div>
+        <label>Tagline<input name="tagline" required></label>
+        <label>Bio<textarea name="bio" rows="3" required></textarea></label>
+        <label>Origin<textarea name="origin" rows="3" required></textarea></label>
+        <label>Timeline<textarea name="timeline" rows="2" required></textarea></label>
+        <div class="form-grid">
+            <label>Powers<textarea name="powers" rows="5" placeholder="One per line"></textarea></label>
+            <label>Weaknesses<textarea name="weaknesses" rows="5" placeholder="One per line"></textarea></label>
+            <label>Teams<textarea name="teams" rows="5" placeholder="One per line"></textarea></label>
+            <label>Enemies<textarea name="enemies" rows="5" placeholder="One per line"></textarea></label>
+            <label>Comic Arcs<textarea name="arcs" rows="5" placeholder="One per line"></textarea></label>
+            <label>MCU Appearances<textarea name="mcu" rows="5" placeholder="One per line"></textarea></label>
+            <label>Variants<textarea name="variants" rows="5" placeholder="One per line"></textarea></label>
+        </div>
+        <button class="glow-button" type="submit">Save Character</button>
+    </form>
+</section>
+{% endblock %}

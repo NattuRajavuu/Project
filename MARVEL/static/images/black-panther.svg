@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#060609"/>
+  <polygon points="0,80 800,0 800,600 0,540" fill="#3b216d"/>
+  <path d="M250 160h300l60 150-210 180-210-180Z" fill="#111" stroke="#f7c948" stroke-width="12"/>
+  <path d="M302 260h72M426 260h72" stroke="#fff" stroke-width="20" stroke-linecap="round"/>
+  <path d="M330 370h140" stroke="#b65cff" stroke-width="14"/>
+  <text x="400" y="92" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="60" fill="#fff">BLACK PANTHER</text>
+</svg>

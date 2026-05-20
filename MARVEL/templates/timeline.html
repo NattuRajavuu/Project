@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Timeline | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+    <div class="container">
+        <p class="eyebrow">Chronology & Multiverse</p>
+        <h1>Glowing Timeline</h1>
+        <p>Follow MCU chronology, branching universes, incursions, alternate Earths, and future collision points.</p>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="timeline-map">
+        {% for event in events %}
+        <article class="timeline-node {{ event.branch }} reveal-card">
+            <div class="node-orbit"></div>
+            <span>{{ event.era }}</span>
+            <h2>{{ event.title }}</h2>
+            <p>{{ event.branch }} · {{ event.event_type }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

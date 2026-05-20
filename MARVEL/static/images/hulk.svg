@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#09120b"/>
+  <polygon points="0,0 800,90 800,600 0,540" fill="#62f26f" opacity=".8"/>
+  <g fill="#1f7f39" stroke="#fff" stroke-width="10">
+    <rect x="225" y="250" width="125" height="190" rx="28"/>
+    <rect x="450" y="250" width="125" height="190" rx="28"/>
+    <rect x="300" y="160" width="200" height="210" rx="52"/>
+  </g>
+  <text x="400" y="115" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="92" fill="#fff">HULK</text>
+</svg>

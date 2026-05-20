@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#0d0d13"/>
+  <polygon points="0,80 800,0 800,600 0,520" fill="#f7c948"/>
+  <path d="M280 170 400 285 520 170 485 470H315Z" fill="#1b64c8" stroke="#fff" stroke-width="12"/>
+  <path d="M230 185 175 440M400 145v320M570 185l55 255" stroke="#e8edf5" stroke-width="18" stroke-linecap="round"/>
+  <text x="400" y="94" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="68" fill="#111">WOLVERINE</text>
+</svg>

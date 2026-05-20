@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ show.title }} | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="detail-hero">
+    <div class="container detail-layout {% if not show.poster_url %}single{% endif %}">
+        {% if show.poster_url %}
+        <div class="detail-poster poster-detail reveal-card">
+            <img src="{{ show.poster_url }}" alt="{{ show.title }} poster">
+        </div>
+        {% endif %}
+        <div class="detail-copy">
+            <p class="eyebrow">{{ show.platform }} · {{ show.seasons }} season{% if show.seasons != 1 %}s{% endif %}</p>
+            <h1>{{ show.title }}</h1>
+            <p>{{ show.plot }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="detail-grid">
+        <article class="info-panel"><p class="eyebrow">Arc</p><h2>Character Arcs</h2><p>{{ show.character_arcs }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Seasons</p><h2>Breakdown</h2><p>{{ show.season_breakdown }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Timeline</p><h2>Relevance</h2><p>{{ show.timeline_relevance }}</p></article>
+        <article class="info-panel"><p class="eyebrow">Details</p><h2>Easter Eggs</h2><p>{{ show.easter_eggs }}</p></article>
+    </div>
+    <article class="impact-panel">
+        <p class="eyebrow">Multiverse Impact</p>
+        <h2>{{ show.multiverse_impact }}</h2>
+    </article>
+</section>
+{% endblock %}

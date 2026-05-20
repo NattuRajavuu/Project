@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#070914"/>
+  <polygon points="0,0 800,120 800,600 0,470" fill="#e62429"/>
+  <g stroke="#111" stroke-width="8" opacity=".55">
+    <path d="M400 120v360M240 170l320 260M560 170 240 430"/>
+    <path d="M180 260h440M220 350h360"/>
+  </g>
+  <ellipse cx="330" cy="270" rx="72" ry="108" fill="#fff"/>
+  <ellipse cx="470" cy="270" rx="72" ry="108" fill="#fff"/>
+  <text x="400" y="520" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="76" fill="#fff">SPIDER-MAN</text>
+</svg>

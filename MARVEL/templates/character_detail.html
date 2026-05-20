@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}{{ character.name }} | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="detail-hero character-detail-hero">
+    <div class="container detail-layout">
+        <div class="detail-poster reveal-card">
+            {% set character_src = character.image_url if character.image_url else url_for('static', filename='images/' ~ character.image) %}
+            <img src="{{ character_src }}" alt="{{ character.name }}">
+        </div>
+        <div class="detail-copy">
+            <p class="eyebrow">{{ character.category }} File</p>
+            <h1>{{ character.name }}</h1>
+            <h2>{{ character.alias }}</h2>
+            <p>{{ character.bio }}</p>
+            <div class="power-readout">
+                <strong>Power Meter</strong>
+                <div class="power-meter xl" style="--power: {{ character.power_level }}%">
+                    <span></span>
+                </div>
+                <em>{{ character.power_level }} / 100</em>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="detail-grid">
+        <article class="info-panel">
+            <p class="eyebrow">Origin</p>
+            <h2>Origin Story</h2>
+            <p>{{ character.origin }}</p>
+        </article>
+        <article class="info-panel">
+            <p class="eyebrow">Timeline</p>
+            <h2>Appearance</h2>
+            <p>{{ character.timeline }}</p>
+        </article>
+    </div>
+
+    <div class="profile-columns">
+        <article class="profile-list">
+            <h3>Powers</h3>
+            {% for item in character.powers %}
+                <span>{{ item }}</span>
+            {% endfor %}
+        </article>
+        <article class="profile-list danger">
+            <h3>Weaknesses</h3>
+            {% for item in character.weaknesses %}
+                <span>{{ item }}</span>
+            {% endfor %}
+        </article>
+        <article class="profile-list">
+            <h3>Teams</h3>
+            {% for item in character.teams %}
+                <span>{{ item }}</span>
+            {% endfor %}
+        </article>
+        <article class="profile-list danger">
+            <h3>Enemies</h3>
+            {% for item in character.enemies %}
+                <span>{{ item }}</span>
+            {% endfor %}
+        </article>
+    </div>
+
+    <div class="detail-grid three">
+        <article class="info-panel">
+            <p class="eyebrow">Comics</p>
+            <h2>Famous Arcs</h2>
+            <ul class="styled-list">
+                {% for item in character.arcs %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </article>
+        <article class="info-panel">
+            <p class="eyebrow">Screen</p>
+            <h2>MCU Appearances</h2>
+            <ul class="styled-list">
+                {% for item in character.mcu %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </article>
+        <article class="info-panel">
+            <p class="eyebrow">Multiverse</p>
+            <h2>Variants</h2>
+            <ul class="styled-list">
+                {% for item in character.variants %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </article>
+    </div>
+
+    <section class="gallery-strip">
+        <h2>Comic Gallery</h2>
+        <div>
+            <span>{{ character.name }}</span>
+            <span>{{ character.alias }}</span>
+            <span>{{ character.category }}</span>
+        </div>
+    </section>
+</section>
+{% endblock %}

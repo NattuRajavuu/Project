@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#101018"/>
+  <polygon points="0,90 800,0 800,600 0,520" fill="#dfe6f2"/>
+  <circle cx="425" cy="290" r="155" fill="#111"/>
+  <circle cx="485" cy="250" r="155" fill="#dfe6f2"/>
+  <path d="M330 300h140M366 238h78" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <text x="400" y="525" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="70" fill="#fff">MOON KNIGHT</text>
+</svg>

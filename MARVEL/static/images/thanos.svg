@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#12091c"/>
+  <polygon points="0,0 800,100 800,600 0,520" fill="#5c2a85"/>
+  <circle cx="400" cy="275" r="150" fill="#8a55b0" stroke="#f7c948" stroke-width="14"/>
+  <rect x="272" y="360" width="256" height="90" rx="8" fill="#f7c948" stroke="#fff" stroke-width="10"/>
+  <circle cx="400" cy="405" r="24" fill="#e62429"/>
+  <circle cx="342" cy="405" r="18" fill="#3ad7ff"/>
+  <circle cx="458" cy="405" r="18" fill="#62f26f"/>
+  <text x="400" y="108" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="86" fill="#fff">THANOS</text>
+</svg>

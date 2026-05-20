@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "components.html" import movie_card %}
+{% block title %}Movies | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+    <div class="container">
+        <p class="eyebrow">Marvel Studios Timeline</p>
+        <h1>MCU Movie Phases</h1>
+        <p>Browse the Infinity Saga, Multiverse Saga, and upcoming Phase 6 entries with timeline placement and comic inspiration.</p>
+    </div>
+</section>
+
+{% for phase, movies in grouped.items() %}
+<section class="container section-block phase-section">
+    <div class="phase-heading">
+        <h2>{{ phase }}</h2>
+        <span>{{ movies|length }} entries</span>
+    </div>
+    <div class="movie-grid">
+        {% for movie in movies %}
+            {{ movie_card(movie) }}
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+{% endblock %}

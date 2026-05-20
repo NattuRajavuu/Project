@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#09090d"/>
+  <polygon points="0,90 800,0 800,600 0,520" fill="#ff8c2b"/>
+  <path d="M300 260c-50-125 20-160 30-235 40 70 120 88 132 180 38-45 38-90 30-132 88 84 98 210 8 300Z" fill="#f7c948" stroke="#e62429" stroke-width="12"/>
+  <circle cx="400" cy="355" r="104" fill="#fff" stroke="#111" stroke-width="14"/>
+  <circle cx="360" cy="340" r="22" fill="#111"/>
+  <circle cx="440" cy="340" r="22" fill="#111"/>
+  <text x="400" y="535" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="68" fill="#fff">GHOST RIDER</text>
+</svg>

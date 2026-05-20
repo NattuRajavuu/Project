@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Edit Comic | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="container section-block">
+    <form class="data-form" method="post">
+        <p class="eyebrow">Admin</p>
+        <h1>Edit Comic</h1>
+        <div class="form-grid">
+            <label>Title<input name="title" value="{{ comic.title }}" required></label>
+            <label>Year<input name="year" type="number" value="{{ comic.year }}" required></label>
+        </div>
+        <label>Summary<textarea name="summary" rows="3">{{ comic.summary }}</textarea></label>
+        <label>Major Deaths<textarea name="major_deaths" rows="3">{{ comic.major_deaths }}</textarea></label>
+        <label>Important Battles<textarea name="important_battles" rows="3">{{ comic.important_battles }}</textarea></label>
+        <label>Adaptations<textarea name="adaptations" rows="3">{{ comic.adaptations }}</textarea></label>
+        <label>Reading Order<textarea name="reading_order" rows="3">{{ comic.reading_order }}</textarea></label>
+        <label>Key Characters<textarea name="key_characters" rows="3">{{ comic.key_characters }}</textarea></label>
+        <button class="glow-button" type="submit">Update Comic</button>
+    </form>
+</section>
+{% endblock %}

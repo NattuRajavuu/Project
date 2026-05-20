@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#050506"/>
+  <polygon points="0,0 800,90 800,600 0,520" fill="#151720"/>
+  <ellipse cx="400" cy="310" rx="190" ry="205" fill="#050506" stroke="#fff" stroke-width="12"/>
+  <path d="M246 252c70-55 140-48 172 0-76-4-120 16-172 0ZM554 252c-70-55-140-48-172 0 76-4 120 16 172 0Z" fill="#fff"/>
+  <path d="M310 394c50 38 130 38 180 0" stroke="#e62429" stroke-width="18" stroke-linecap="round"/>
+  <text x="400" y="104" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="88" fill="#fff">VENOM</text>
+</svg>

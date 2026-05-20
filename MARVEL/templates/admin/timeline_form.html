@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Add Timeline Node | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="container section-block">
+    <form class="data-form" method="post">
+        <p class="eyebrow">Admin</p>
+        <h1>Add Timeline Node</h1>
+        <div class="form-grid">
+            <label>Era<input name="era" placeholder="2026"></label>
+            <label>Branch<input name="branch" value="main"></label>
+            <label>Event Type<input name="event_type" value="incursion"></label>
+        </div>
+        <label>Title<input name="title" required></label>
+        <button class="glow-button" type="submit">Save Node</button>
+    </form>
+</section>
+{% endblock %}

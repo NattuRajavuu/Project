@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#12091c"/>
+  <polygon points="0,80 800,0 800,600 0,520" fill="#b65cff" opacity=".76"/>
+  <circle cx="400" cy="305" r="170" fill="none" stroke="#f7c948" stroke-width="14"/>
+  <circle cx="400" cy="305" r="98" fill="none" stroke="#3ad7ff" stroke-width="10"/>
+  <path d="M400 140v330M235 305h330M280 185l240 240M520 185 280 425" stroke="#fff" stroke-width="8"/>
+  <text x="400" y="92" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="60" fill="#fff">DOCTOR STRANGE</text>
+</svg>

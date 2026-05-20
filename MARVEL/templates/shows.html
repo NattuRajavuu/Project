@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Series | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+    <div class="container">
+        <p class="eyebrow">Marvel Television</p>
+        <h1>Series Archive</h1>
+        <p>Disney+, Netflix-era, ABC, and animated Marvel shows with arcs, timelines, easter eggs, and multiverse impact.</p>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="series-grid">
+        {% for show in shows %}
+        <a class="series-card reveal-card" href="{{ url_for('main.show_detail', show_id=show.id) }}">
+            {% if show.poster_url %}
+            <div class="series-poster">
+                <img src="{{ show.poster_url }}" alt="{{ show.title }} poster" loading="lazy">
+            </div>
+            {% endif %}
+            <span>{{ show.platform }}</span>
+            <h2>{{ show.title }}</h2>
+            <p>{{ show.plot }}</p>
+            <strong>{{ show.seasons }} season{% if show.seasons != 1 %}s{% endif %}</strong>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

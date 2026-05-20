@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}404 | MarvelVerse Explorer{% endblock %}
+{% block content %}
+<section class="admin-stage">
+    <div class="admin-card">
+        <p class="eyebrow">Signal Lost</p>
+        <h1>404</h1>
+        <p>This universe branch does not exist in the archive.</p>
+        <a class="glow-button" href="{{ url_for('main.home') }}">Return Home</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#100817"/>
+  <polygon points="0,90 800,0 800,600 0,520" fill="#b65cff"/>
+  <path d="M250 170h300v180c0 92-68 150-150 150s-150-58-150-150Z" fill="#9f1118" stroke="#fff" stroke-width="12"/>
+  <path d="M305 195h190v84H305Z" fill="#5c2a85"/>
+  <path d="M275 352h250" stroke="#f7c948" stroke-width="18"/>
+  <text x="400" y="102" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="82" fill="#fff">MAGNETO</text>
+</svg>

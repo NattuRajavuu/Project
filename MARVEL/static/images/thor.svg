@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#101226"/>
+  <polygon points="0,460 800,80 800,600 0,600" fill="#3ad7ff" opacity=".7"/>
+  <path d="M430 88 295 326h104l-32 190 150-252H404Z" fill="#f7c948" stroke="#fff" stroke-width="12"/>
+  <rect x="258" y="344" width="286" height="64" rx="8" fill="#8a5a20" stroke="#fff" stroke-width="10"/>
+  <text x="400" y="116" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="88" fill="#fff">THOR</text>
+</svg>

@@ -1,0 +1,50 @@
+{% macro character_card(character) %}
+<article class="comic-card reveal-card">
+    <a href="{{ url_for('main.character_detail', character_id=character.id) }}" class="card-link">
+        {% set character_src = character.image_url if character.image_url else url_for('static', filename='images/' ~ character.image) %}
+        <div class="card-media">
+            <img src="{{ character_src }}" alt="{{ character.name }}" loading="lazy">
+            <span class="badge-ribbon">{{ character.category }}</span>
+        </div>
+        <div class="card-body">
+            <p class="eyebrow">{{ character.alias }}</p>
+            <h3>{{ character.name }}</h3>
+            <p>{{ character.tagline }}</p>
+            <div class="power-meter" style="--power: {{ character.power_level }}%">
+                <span></span>
+            </div>
+        </div>
+    </a>
+</article>
+{% endmacro %}
+
+{% macro movie_card(movie) %}
+<article class="movie-card reveal-card">
+    <a href="{{ url_for('main.movie_detail', movie_id=movie.id) }}" class="card-link">
+        {% if movie.poster_url %}
+        <div class="poster-media">
+            <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster" loading="lazy">
+        </div>
+        {% endif %}
+        <div class="movie-phase">{{ movie.phase }}</div>
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.synopsis }}</p>
+        <div class="meta-row">
+            <span>{{ movie.release_year }}</span>
+            {% if movie.rating > 0 %}
+                <span>{{ movie.rating }}%</span>
+            {% else %}
+                <span>Upcoming</span>
+            {% endif %}
+        </div>
+    </a>
+</article>
+{% endmacro %}
+
+{% macro comic_panel(title, body, label='Intel') %}
+<section class="info-panel reveal-card">
+    <p class="eyebrow">{{ label }}</p>
+    <h2>{{ title }}</h2>
+    <p>{{ body }}</p>
+</section>
+{% endmacro %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Comics | MarvelVerse Explorer{% endblock %}
+
+{% block content %}
+<section class="page-hero compact-hero">
+    <div class="container">
+        <p class="eyebrow">Comics Library</p>
+        <h1>Animated Comic Shelves</h1>
+        <p>Explore legendary Marvel arcs, deaths, battles, adaptations, reading order, and key characters.</p>
+    </div>
+</section>
+
+<section class="container section-block">
+    <div class="comic-shelf">
+        {% for comic in comics %}
+        <a class="shelf-book tall reveal-card" href="{{ url_for('main.comic_detail', comic_id=comic.id) }}">
+            <span>{{ comic.year }}</span>
+            <h2>{{ comic.title }}</h2>
+            <p>{{ comic.key_characters }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

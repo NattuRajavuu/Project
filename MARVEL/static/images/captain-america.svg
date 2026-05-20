@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#081225"/>
+  <polygon points="0,0 800,130 800,600 0,470" fill="#1b64c8"/>
+  <circle cx="400" cy="305" r="180" fill="#e62429" stroke="#fff" stroke-width="12"/>
+  <circle cx="400" cy="305" r="128" fill="#fff"/>
+  <circle cx="400" cy="305" r="84" fill="#e62429"/>
+  <polygon points="400,217 424,282 494,282 437,323 459,390 400,350 341,390 363,323 306,282 376,282" fill="#fff"/>
+  <text x="400" y="94" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="58" fill="#fff">CAPTAIN AMERICA</text>
+</svg>
