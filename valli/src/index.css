@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f7f7f5;
+  color: #0b0b0f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  color-scheme: dark;
+  background: #0b0b0f;
+  color: #f7f7f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+@layer components {
+  .glass {
+    @apply border border-black/10 bg-white/70 shadow-soft backdrop-blur-2xl dark:border-white/10 dark:bg-white/10;
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-black focus:outline-none focus:ring-2 focus:ring-ink/30 dark:bg-white dark:text-ink;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-ink/20 dark:border-white/10 dark:bg-white/10 dark:text-white;
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-black/10 bg-white/80 px-4 py-3 text-sm outline-none transition placeholder:text-black/40 focus:border-black/30 focus:ring-4 focus:ring-black/5 dark:border-white/10 dark:bg-white/10 dark:placeholder:text-white/40 dark:focus:border-white/30;
+  }
+
+  .toast-shell {
+    @apply rounded-2xl border border-black/10 bg-white/90 px-4 py-3 text-sm font-medium text-ink shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-ink/90 dark:text-white;
+  }
+}

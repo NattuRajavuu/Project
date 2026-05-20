@@ -1,0 +1,100 @@
+export const categories = ['All', 'Audio', 'Wearables', 'Home', 'Travel', 'Desk'];
+
+export const products = [
+  {
+    id: 'aura-max',
+    name: 'Aura Max Headphones',
+    category: 'Audio',
+    price: 549,
+    rating: 4.9,
+    tag: 'Signature',
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description: 'Studio-grade wireless headphones with spatial audio, soft memory foam, and an all-day battery.',
+    colors: ['Graphite', 'Pearl', 'Silver'],
+  },
+  {
+    id: 'nova-watch',
+    name: 'Nova Ceramic Watch',
+    category: 'Wearables',
+    price: 799,
+    rating: 4.8,
+    tag: 'New',
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description: 'A polished ceramic smartwatch with health intelligence, crisp display, and refined bands.',
+    colors: ['Porcelain', 'Obsidian', 'Mist'],
+  },
+  {
+    id: 'halo-lamp',
+    name: 'Halo Ambient Lamp',
+    category: 'Home',
+    price: 320,
+    rating: 4.7,
+    tag: 'Home Edit',
+    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1200&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description: 'A sculptural lamp with warm dimming, touch controls, and soft indirect glow.',
+    colors: ['Sandstone', 'Charcoal', 'White'],
+  },
+  {
+    id: 'monolith-speaker',
+    name: 'Monolith Speaker',
+    category: 'Audio',
+    price: 680,
+    rating: 4.9,
+    tag: 'Best Seller',
+    image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1200&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description: 'Room-filling sound in a minimal aluminum body with adaptive room tuning.',
+    colors: ['Black', 'Aluminum'],
+  },
+  {
+    id: 'arc-sunglasses',
+    name: 'Arc Titanium Sunglasses',
+    category: 'Travel',
+    price: 260,
+    rating: 4.6,
+    tag: 'Limited',
+    image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description: 'Featherweight titanium frames with polarized lenses and a quiet luxury silhouette.',
+    colors: ['Smoke', 'Champagne', 'Black'],
+  },
+  {
+    id: 'slab-dock',
+    name: 'Slab Charging Dock',
+    category: 'Desk',
+    price: 180,
+    rating: 4.8,
+    tag: 'Essential',
+    image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=1200&q=85',
+    gallery: [
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1200&q=85',
+    ],
+    description: 'A machined multi-device dock that keeps your workspace calm, charged, and cable-light.',
+    colors: ['Silver', 'Graphite'],
+  },
+];
+
+export const testimonials = [
+  { name: 'Maya S.', text: 'The experience feels calmer than any online store I use. Checkout was effortless.' },
+  { name: 'Noah R.', text: 'Beautiful curation, fast interactions, and the details feel genuinely premium.' },
+  { name: 'Elena K.', text: 'I came for headphones and left with a wishlist full of objects I actually want.' },
+];
