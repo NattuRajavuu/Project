@@ -15,7 +15,7 @@ CREATE TABLE users (
 CREATE TABLE questions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     category TEXT NOT NULL,
-    question TEXT NOT NULL,
+    question TEXT NOT NULL UNIQUE,
     option1 TEXT NOT NULL,
     option2 TEXT NOT NULL,
     option3 TEXT NOT NULL,
@@ -46,3 +46,4 @@ CREATE TABLE quiz_answers (
     FOREIGN KEY (result_id) REFERENCES quiz_results (id),
     FOREIGN KEY (question_id) REFERENCES questions (id)
 );
+

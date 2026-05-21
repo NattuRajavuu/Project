@@ -170,10 +170,27 @@ def make_questions():
         ("It is a database-only operation.", "It requires no assumptions.", "It always increases overfitting."),
     ]
 
+    prompt_variants = [
+        "In a production ML workflow, which answer best fits this concept?",
+        "During interview prep, how should this idea be understood?",
+        "When debugging an ML pipeline, which interpretation is most accurate?",
+        "For a practical data science project, what is the best description?",
+        "In model development notes, which statement should be marked correct?",
+        "When reviewing fundamentals, which option captures the main point?",
+        "For an applied ML system, which explanation is most reliable?",
+        "In an experiment report, which description would be technically accurate?",
+        "When teaching this topic to a teammate, which answer is clearest?",
+        "For exam-style ML reasoning, which option is correct?",
+    ]
+
     for category, seeds in CATEGORIES.items():
-        for i in range(75):
+        for i in range(300):
             base = seeds[i % len(seeds)]
-            suffix = "" if i < len(seeds) else f" Scenario {i - len(seeds) + 1}: choose the best ML interpretation."
+            suffix = (
+                ""
+                if i < len(seeds)
+                else f" {prompt_variants[(i - len(seeds)) % len(prompt_variants)]} Case #{i - len(seeds) + 1}."
+            )
             wrongs = distractor_sets[i % len(distractor_sets)]
             questions.append(
                 {
@@ -196,3 +213,5 @@ if __name__ == "__main__":
     questions = make_questions()
     output.write_text(json.dumps(questions, indent=2), encoding="utf-8")
     print(f"Wrote {len(questions)} questions to {output}")
+
+

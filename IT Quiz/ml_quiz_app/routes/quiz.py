@@ -52,15 +52,33 @@ def start():
 
     where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
     db = get_db()
+    unseen_clause = """
+        id NOT IN (
+            SELECT qa.question_id
+            FROM quiz_answers qa
+            JOIN quiz_results qr ON qr.id = qa.result_id
+            WHERE qr.user_id = ?
+        )
+    """
+    unseen_params = [session["user_id"]]
+    unseen_where = f"{where} AND {unseen_clause}" if where else f"WHERE {unseen_clause}"
+
     if mode == "Daily Challenge":
-        candidates = db.execute(f"SELECT * FROM questions {where}", params).fetchall()
+        candidates = db.execute(f"SELECT * FROM questions {unseen_where}", params + unseen_params).fetchall()
+        if len(candidates) < 25:
+            candidates = db.execute(f"SELECT * FROM questions {where}", params).fetchall()
         today = date.today().isoformat()
         rows = sorted(
             candidates,
             key=lambda row: sha256(f"{today}:{category}:{difficulty}:{row['id']}".encode()).hexdigest(),
         )[:25]
     else:
-        rows = db.execute(f"SELECT * FROM questions {where} ORDER BY RANDOM() LIMIT 25", params).fetchall()
+        rows = db.execute(
+            f"SELECT * FROM questions {unseen_where} ORDER BY RANDOM() LIMIT 25",
+            params + unseen_params,
+        ).fetchall()
+        if len(rows) < 25:
+            rows = db.execute(f"SELECT * FROM questions {where} ORDER BY RANDOM() LIMIT 25", params).fetchall()
 
     if len(rows) < 25:
         return redirect(url_for("main.dashboard"))
@@ -183,3 +201,4 @@ def finish():
         completion_time=completion_time,
         details=detail_rows,
     )
+
