@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}NeuralQuiz AI{% endblock %}
+{% block content %}
+<section class="grid min-h-[75vh] items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <div>
+        <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Timed AI and machine learning mastery</p>
+        <h1 class="max-w-4xl text-5xl font-black leading-tight text-white md:text-7xl">NeuralQuiz AI</h1>
+        <p class="mt-6 max-w-2xl text-lg text-slate-300">Practice with a 300+ question ML library, 30-second rounds, answer explanations, rankings, XP, badges, category filters, and daily challenge mode.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+            {% if session.get('user_id') %}
+                <a class="primary-btn" href="{{ url_for('main.dashboard') }}">Open Dashboard</a>
+            {% else %}
+                <a class="primary-btn" href="{{ url_for('auth.register') }}">Start Free</a>
+                <a class="secondary-btn" href="{{ url_for('auth.login') }}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="panel p-6">
+        <div class="grid gap-4 sm:grid-cols-2">
+            <div class="metric"><span>{{ stats.total or 0 }}</span><small>Questions</small></div>
+            <div class="metric"><span>{{ stats.categories or 0 }}</span><small>Topics</small></div>
+            <div class="metric"><span>25</span><small>Per Quiz</small></div>
+            <div class="metric"><span>30s</span><small>Per Question</small></div>
+        </div>
+        <div class="mt-6 rounded border border-cyan-400/20 bg-slate-900/70 p-5">
+            <div class="mb-3 h-2 rounded bg-slate-800"><div class="h-2 w-3/4 rounded bg-cyan-400"></div></div>
+            <p class="text-sm text-slate-300">Built for focused, fast feedback: answer, move forward, review every explanation at the end.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Leaderboard{% endblock %}
+{% block content %}
+<section class="panel p-6">
+    <h1 class="mb-6 text-4xl font-black">Leaderboard</h1>
+    <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+            <thead class="text-slate-400"><tr><th>Rank</th><th>User</th><th>Badge</th><th>Score</th><th>Percent</th><th>Time</th><th>Quiz</th><th>Date</th></tr></thead>
+            <tbody>
+                {% for row in rows %}
+                    <tr class="border-t border-slate-800">
+                        <td>#{{ loop.index }}</td><td>{{ row.username }}</td><td>{{ row.badge }}</td><td>{{ row.score }}/25</td><td>{{ row.percentage }}%</td><td>{{ row.completion_time }}s</td><td>{{ row.category }} · {{ row.difficulty }}</td><td>{{ row.date }}</td>
+                    </tr>
+                {% else %}
+                    <tr><td class="py-4 text-slate-400" colspan="8">No scores yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Quiz{% endblock %}
+{% block content %}
+<section class="mx-auto max-w-4xl panel p-6">
+    <div class="mb-5 flex flex-wrap items-center justify-between gap-4">
+        <div>
+            <p class="text-sm text-cyan-300">{{ question.category }} · {{ question.difficulty }}</p>
+            <h1 class="text-2xl font-bold">Question {{ current }} of {{ total }}</h1>
+        </div>
+        <div id="timer" class="timer" data-seconds="{{ seconds }}">{{ seconds }}</div>
+    </div>
+    <div class="mb-6 h-3 rounded bg-slate-800">
+        <div class="h-3 rounded bg-cyan-400 transition-all" style="width: {{ (current / total * 100)|round(1) }}%"></div>
+    </div>
+    <h2 class="mb-6 text-xl font-semibold leading-relaxed">{{ question.question }}</h2>
+    <form id="answerForm" method="post" action="{{ url_for('quiz.answer') }}" class="space-y-3">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        {% for option in question.options %}
+            <button class="option-btn" name="answer" value="{{ option.key }}" type="submit">{{ option.text }}</button>
+        {% endfor %}
+    </form>
+</section>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

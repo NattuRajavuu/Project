@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+    <section class="panel p-6">
+        <p class="text-cyan-300">Welcome back</p>
+        <h1 class="text-4xl font-black">{{ user.username }}</h1>
+        <div class="mt-6 grid grid-cols-3 gap-3">
+            <div class="metric"><span>{{ user.xp }}</span><small>XP</small></div>
+            <div class="metric"><span>{{ best.score or 0 }}</span><small>Best</small></div>
+            <div class="metric"><span>{{ user.badge }}</span><small>Badge</small></div>
+        </div>
+    </section>
+
+    <section class="panel p-6">
+        <h2 class="mb-4 text-2xl font-bold">Start Quiz</h2>
+        <form method="post" action="{{ url_for('quiz.start') }}" class="grid gap-4 md:grid-cols-3">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label class="field">Category
+                <select name="category">
+                    <option>All</option>
+                    {% for row in categories %}<option>{{ row.category }}</option>{% endfor %}
+                </select>
+            </label>
+            <label class="field">Difficulty
+                <select name="difficulty">
+                    <option>All</option>
+                    <option>easy</option>
+                    <option>medium</option>
+                    <option>hard</option>
+                </select>
+            </label>
+            <label class="field">Mode
+                <select name="mode">
+                    <option>Standard</option>
+                    <option>Daily Challenge</option>
+                </select>
+            </label>
+            <button class="primary-btn md:col-span-3" type="submit">Launch 25-Question Quiz</button>
+        </form>
+    </section>
+</div>
+
+<section class="mt-6 panel p-6">
+    <h2 class="mb-4 text-2xl font-bold">Recent Attempts</h2>
+    <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+            <thead class="text-slate-400"><tr><th>Score</th><th>Percent</th><th>Time</th><th>Category</th><th>Date</th></tr></thead>
+            <tbody>
+                {% for row in attempts %}
+                    <tr class="border-t border-slate-800"><td>{{ row.score }}/25</td><td>{{ row.percentage }}%</td><td>{{ row.completion_time }}s</td><td>{{ row.category }}</td><td>{{ row.date }}</td></tr>
+                {% else %}
+                    <tr><td class="py-4 text-slate-400" colspan="5">No attempts yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

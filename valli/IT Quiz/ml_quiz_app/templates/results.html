@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+<section class="panel p-6">
+    <h1 class="mb-6 text-4xl font-black">Quiz Results</h1>
+    <div class="grid gap-4 md:grid-cols-5">
+        <div class="metric"><span>{{ score }}/{{ total }}</span><small>Total Score</small></div>
+        <div class="metric"><span>{{ percentage }}%</span><small>Percentage</small></div>
+        <div class="metric"><span>{{ score }}</span><small>Correct</small></div>
+        <div class="metric"><span>{{ total - score }}</span><small>Wrong</small></div>
+        <div class="metric"><span>{{ completion_time }}s</span><small>Time Taken</small></div>
+    </div>
+</section>
+
+<section class="mt-6 space-y-4">
+    {% for item in details %}
+        {% set q = item.question %}
+        <article class="panel p-5">
+            <div class="mb-3 flex items-center justify-between gap-3">
+                <p class="text-sm text-cyan-300">{{ q.category }} · {{ q.difficulty }}</p>
+                <span class="{{ 'text-emerald-300' if item.is_correct else 'text-rose-300' }}">{{ 'Correct' if item.is_correct else 'Review' }}</span>
+            </div>
+            <h2 class="mb-4 font-semibold">{{ loop.index }}. {{ q.question }}</h2>
+            {% for key in ['option1', 'option2', 'option3', 'option4'] %}
+                {% set is_correct = key == q.correct_answer %}
+                {% set is_user = key == item.user_answer %}
+                <div class="answer-row {{ 'correct' if is_correct else '' }} {{ 'wrong' if is_user and not is_correct else '' }}">
+                    {{ q[key] }}
+                    {% if is_correct %}<span>Correct answer</span>{% endif %}
+                    {% if is_user and not is_correct %}<span>Your answer</span>{% endif %}
+                </div>
+            {% endfor %}
+            <p class="mt-4 text-sm text-slate-300"><strong class="text-white">Explanation:</strong> {{ q.explanation }}</p>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}
