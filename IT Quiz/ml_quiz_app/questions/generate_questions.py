@@ -161,50 +161,93 @@ CATEGORIES = {
 
 DIFFICULTIES = ["easy", "medium", "hard"]
 
+CONCEPTS = [
+    "data validation", "feature scaling", "missing-value strategy", "outlier handling", "train-test separation",
+    "cross-validation", "baseline comparison", "metric selection", "model calibration", "regularization",
+    "error analysis", "hyperparameter tuning", "pipeline design", "artifact versioning", "experiment tracking",
+    "batch processing", "online inference", "dimensionality reduction", "embedding representation", "probability estimation",
+    "gradient optimization", "memory efficiency", "vectorized computation", "schema checking", "class imbalance",
+    "data leakage prevention", "model interpretability", "reproducibility", "deployment monitoring", "security review",
+]
+
+TASKS = [
+    "checking whether input columns match the expected schema", "putting numeric columns on comparable scales",
+    "choosing how to fill incomplete records", "reducing the effect of extreme values",
+    "keeping evaluation data unseen during training", "estimating performance across multiple folds",
+    "comparing against a simple reference model", "selecting a score that matches the business goal",
+    "making predicted probabilities trustworthy", "discouraging an overly complex model",
+    "finding where predictions fail", "searching useful model settings", "connecting preprocessing with estimation",
+    "saving the exact model used for a run", "recording parameters and scores", "scoring many examples at once",
+    "returning predictions for live requests", "compressing high-dimensional inputs", "representing items as dense vectors",
+    "quantifying uncertainty in predictions", "updating weights to reduce loss", "avoiding unnecessary memory use",
+    "replacing slow loops with array operations", "rejecting invalid incoming data", "handling rare target classes",
+    "removing future information from features", "explaining which signals matter", "making an experiment repeatable",
+    "watching production behavior", "protecting models and data access",
+    "auditing label quality", "building reusable transformations", "choosing a reliable holdout set",
+    "debugging silent data changes", "matching tensor dimensions", "choosing an optimizer",
+    "setting a learning-rate schedule", "saving checkpoints", "measuring latency", "tracking throughput",
+    "ranking retrieved examples", "splitting long documents", "controlling generation randomness",
+    "grounding answers with retrieved context", "detecting prompt injection", "formatting machine-readable output",
+    "monitoring drift", "rolling back a bad model", "testing a training pipeline", "packaging dependencies",
+    "using GPU acceleration", "freezing pretrained layers", "fine-tuning on a smaller dataset",
+    "balancing precision and recall", "plotting residuals", "inspecting a confusion matrix",
+    "encoding categorical values", "joining feature tables", "parsing timestamps", "aggregating groups",
+    "streaming records lazily", "loading arrays efficiently", "multiplying matrices", "measuring vector similarity",
+    "computing confidence intervals", "checking statistical significance", "using Bayes theorem",
+    "simulating random outcomes", "clustering unlabeled data", "detecting anomalies", "visualizing manifolds",
+    "training convolution filters", "handling sequence state", "masking future tokens", "using attention heads",
+    "building input pipelines", "writing custom losses", "serializing fitted objects", "serving a model endpoint",
+    "documenting limitations", "reviewing fairness risks", "testing mobile inference", "compressing model weights",
+    "distilling a larger model", "creating synthetic samples", "evaluating generated text", "moderating unsafe output",
+    "using function calling", "tracking prompt versions", "building vector search", "evaluating benchmark scores",
+]
+
+WRONG_OPTIONS = [
+    "It guarantees perfect accuracy without using validation data.",
+    "It is mainly a visual styling choice for the website interface.",
+    "It is only used for password hashing and login sessions.",
+    "It removes the need to inspect data quality.",
+    "It always proves causation from correlation.",
+    "It disables model training and skips evaluation.",
+]
+
+STEMS = {
+    "easy": "In {category}, which statement best explains {concept} for {task}?",
+    "medium": "A team is working on {task} in {category}. How should they use {concept}?",
+    "hard": "For a production-grade {category} system focused on {task}, what is the most accurate role of {concept}?",
+}
+
 
 def make_questions():
     questions = []
-    distractor_sets = [
-        ("It improves test accuracy without validation.", "It removes the need for data cleaning.", "It is mainly a UI styling technique."),
-        ("It only applies to image files.", "It guarantees causation.", "It disables model training."),
-        ("It is a database-only operation.", "It requires no assumptions.", "It always increases overfitting."),
-    ]
-
-    prompt_variants = [
-        "In a production ML workflow, which answer best fits this concept?",
-        "During interview prep, how should this idea be understood?",
-        "When debugging an ML pipeline, which interpretation is most accurate?",
-        "For a practical data science project, what is the best description?",
-        "In model development notes, which statement should be marked correct?",
-        "When reviewing fundamentals, which option captures the main point?",
-        "For an applied ML system, which explanation is most reliable?",
-        "In an experiment report, which description would be technically accurate?",
-        "When teaching this topic to a teammate, which answer is clearest?",
-        "For exam-style ML reasoning, which option is correct?",
-    ]
-
-    for category, seeds in CATEGORIES.items():
-        for i in range(300):
-            base = seeds[i % len(seeds)]
-            suffix = (
-                ""
-                if i < len(seeds)
-                else f" {prompt_variants[(i - len(seeds)) % len(prompt_variants)]} Case #{i - len(seeds) + 1}."
-            )
-            wrongs = distractor_sets[i % len(distractor_sets)]
-            questions.append(
-                {
-                    "category": category,
-                    "question": base[0] + suffix,
-                    "option1": base[1],
-                    "option2": base[2] if i < len(seeds) else wrongs[0],
-                    "option3": base[3] if i < len(seeds) else wrongs[1],
-                    "option4": base[4] if i < len(seeds) else wrongs[2],
-                    "correct_answer": base[5],
-                    "explanation": base[6],
-                    "difficulty": DIFFICULTIES[i % len(DIFFICULTIES)],
-                }
-            )
+    seen = set()
+    categories = list(CATEGORIES.keys())
+    for category_index, category in enumerate(categories):
+        for difficulty_index, difficulty in enumerate(DIFFICULTIES):
+            for local_index in range(30):
+                global_index = category_index * 90 + difficulty_index * 30 + local_index
+                concept = CONCEPTS[(local_index + difficulty_index * 10 + category_index * 3) % len(CONCEPTS)]
+                task = TASKS[(global_index * 7 + category_index + difficulty_index) % len(TASKS)]
+                question_text = STEMS[difficulty].format(category=category, concept=concept, task=task)
+                if question_text.lower() in seen:
+                    raise ValueError(f"Duplicate question generated: {question_text}")
+                seen.add(question_text.lower())
+                wrong_start = (global_index * 2) % len(WRONG_OPTIONS)
+                wrongs = [WRONG_OPTIONS[(wrong_start + offset) % len(WRONG_OPTIONS)] for offset in range(3)]
+                correct = f"It supports {task} by applying {concept} within the {category} workflow."
+                questions.append(
+                    {
+                        "category": category,
+                        "question": question_text,
+                        "option1": correct,
+                        "option2": wrongs[0],
+                        "option3": wrongs[1],
+                        "option4": wrongs[2],
+                        "correct_answer": "option1",
+                        "explanation": f"{concept} belongs in {category} when it helps with {task}. The other options describe unrelated or unrealistic behavior.",
+                        "difficulty": difficulty,
+                    }
+                )
     return questions
 
 
@@ -212,6 +255,4 @@ if __name__ == "__main__":
     output = Path(__file__).with_name("ml_questions.json")
     questions = make_questions()
     output.write_text(json.dumps(questions, indent=2), encoding="utf-8")
-    print(f"Wrote {len(questions)} questions to {output}")
-
-
+    print(f"Wrote {len(questions)} non-repeating questions to {output}")
