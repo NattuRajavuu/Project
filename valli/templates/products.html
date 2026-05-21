@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Shop - Luxe Atelier{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="section-heading"><p class="eyebrow">The Collection</p><h1>Shop refined essentials</h1><p>Search, filter, sort, and ask the AI assistant for help choosing.</p></div>
+  <form class="glass mb-8 grid gap-4 p-4 lg:grid-cols-[1fr_auto_auto]">
+    <input class="input" name="q" value="{{ query }}" placeholder="Search products">
+    <select class="input lg:w-52" name="category">{% for category in categories %}<option value="{{ category }}" {% if category == selected_category %}selected{% endif %}>{{ category }}</option>{% endfor %}</select>
+    <select class="input lg:w-52" name="sort">
+      {% for value, label in [("featured","Featured"),("low","Price: Low to High"),("high","Price: High to Low"),("rating","Top Rated")] %}
+        <option value="{{ value }}" {% if value == sort %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+    <button class="btn-primary lg:col-span-3">Apply filters</button>
+  </form>
+  <p class="mb-5 text-sm font-bold text-black/55 dark:text-white/55">{{ products|length }} products</p>
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{% for product in products %}{% include "product_card.html" %}{% else %}<div class="card text-center">No products found.</div>{% endfor %}</div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Cart - Luxe Atelier{% endblock %}
+{% block content %}
+<section class="section">
+  {% if not items %}
+    <div class="grid min-h-[55vh] place-items-center text-center"><div><h1 class="text-4xl font-black">Your cart is beautifully empty</h1><p class="mt-3 text-black/55 dark:text-white/55">Add a few refined essentials and they will appear here.</p><a class="btn-primary mt-7" href="{{ url_for('products.products') }}">Start shopping</a></div></div>
+  {% else %}
+    <div class="grid gap-8 lg:grid-cols-[1fr_380px]">
+      <div><h1 class="mb-6 text-4xl font-black">Shopping cart</h1><div class="grid gap-4">
+        {% for item in items %}
+          <article class="card grid gap-4 sm:grid-cols-[120px_1fr_auto]">
+            <img class="aspect-square w-full rounded-2xl object-cover sm:w-[120px]" src="{{ item.image }}" alt="{{ item.name }}">
+            <div><h2 class="font-black">{{ item.name }}</h2><p class="mt-1 text-sm text-black/55 dark:text-white/55">{{ item.category }}</p><p class="mt-3 text-lg font-black">{{ money(item.price) }}</p></div>
+            <form class="flex items-center gap-2 sm:flex-col" method="post" action="{{ url_for('products.update_cart', product_id=item.id) }}"><input class="input w-24" name="quantity" type="number" min="0" value="{{ item.quantity }}"><button class="btn-secondary">Update</button></form>
+          </article>
+        {% endfor %}
+      </div></div>
+      <aside class="card h-fit"><h2 class="text-xl font-black">Order summary</h2><div class="mt-6 grid gap-3 text-sm"><div class="flex justify-between"><span>Subtotal</span><strong>{{ money(totals.subtotal) }}</strong></div><div class="flex justify-between"><span>Shipping</span><strong>{{ money(totals.shipping) }}</strong></div><div class="flex justify-between border-t border-black/10 pt-4 text-lg dark:border-white/10"><span>Total</span><strong>{{ money(totals.total) }}</strong></div></div><a class="btn-primary mt-6 w-full" href="{{ url_for('products.checkout') }}">Checkout</a></aside>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Checkout - Luxe Atelier{% endblock %}
+{% block content %}
+<section class="section grid gap-8 lg:grid-cols-[1fr_380px]">
+  <form method="post" class="card grid gap-4">
+    <p class="eyebrow">Secure Checkout</p><h1 class="text-4xl font-black">Complete your order</h1>
+    <div class="grid gap-4 sm:grid-cols-2"><input class="input" placeholder="First name" required><input class="input" placeholder="Last name" required></div>
+    <input class="input" type="email" placeholder="Email address" required><input class="input" placeholder="Street address" required>
+    <div class="grid gap-4 sm:grid-cols-3"><input class="input" placeholder="City" required><input class="input" placeholder="State" required><input class="input" placeholder="ZIP" required></div>
+    <div class="rounded-3xl border border-black/10 p-5 dark:border-white/10"><h2 class="mb-4 font-black">Payment</h2><input class="input mb-4" placeholder="Card number" required><div class="grid gap-4 sm:grid-cols-2"><input class="input" placeholder="MM / YY" required><input class="input" placeholder="CVC" required></div></div>
+    <button class="btn-primary" {% if not items %}disabled{% endif %}>Place order</button>
+  </form>
+  <aside class="card h-fit"><h2 class="text-xl font-black">Summary</h2><div class="mt-5 grid gap-4">{% for item in items %}<div class="flex gap-3"><img class="h-16 w-16 rounded-2xl object-cover" src="{{ item.image }}" alt="{{ item.name }}"><div class="flex-1"><p class="text-sm font-bold">{{ item.name }}</p><p class="text-xs text-black/50 dark:text-white/50">Qty {{ item.quantity }}</p></div><strong class="text-sm">{{ money(item.line_total) }}</strong></div>{% else %}<p class="text-sm text-black/55 dark:text-white/55">Your cart is empty.</p>{% endfor %}</div><div class="mt-6 grid gap-3 border-t border-black/10 pt-5 text-sm dark:border-white/10"><div class="flex justify-between"><span>Total</span><strong>{{ money(totals.total) }}</strong></div></div></aside>
+</section>
+{% endblock %}

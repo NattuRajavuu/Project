@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Login - Luxe Atelier{% endblock %}
+{% block content %}
+<section class="section grid items-center gap-10 lg:grid-cols-[.9fr_1fr]">
+  <div><p class="eyebrow">Member space</p><h1 class="mt-4 text-5xl font-black tracking-[-.05em]">Your private atelier account.</h1><p class="mt-5 max-w-lg leading-8 text-black/60 dark:text-white/60">Save wishlists, track orders, and keep checkout ready for the next release.</p></div>
+  <form method="post" class="card grid gap-4">
+    <h2 class="text-2xl font-black">Welcome back</h2>
+    <input class="input" name="email" type="email" placeholder="Email address" required>
+    <input class="input" name="password" type="password" placeholder="Password" required>
+    <button class="btn-primary">Login</button>
+    <p class="text-center text-sm text-black/50 dark:text-white/50">New here? <a class="font-bold underline" href="{{ url_for('auth.register') }}">Create an account</a></p>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}AI Chat Assistant - Luxe Atelier{% endblock %}
+{% block content %}
+<section class="section grid gap-8 lg:grid-cols-[.85fr_1.15fr]">
+  <div>
+    <p class="eyebrow">AI Assistant</p>
+    <h1 class="mt-4 text-5xl font-black tracking-[-.05em]">A personal shopping assistant for the full catalog.</h1>
+    <p class="mt-5 max-w-lg leading-8 text-black/60 dark:text-white/60">Use OpenAI, Gemini, or Claude via server-side Python services. The assistant understands product context, FAQs, cart flow, and recommendations.</p>
+    <div class="mt-6 grid gap-3 text-sm text-black/55 dark:text-white/55"><p>Streaming responses when OpenAI is configured.</p><p>Session memory for recent chat context.</p><p>No API keys are exposed to the browser.</p></div>
+  </div>
+  <div class="glass overflow-hidden rounded-[2rem]">
+    <div class="border-b border-black/10 p-5 dark:border-white/10"><h2 class="text-xl font-black">Luxe Chat Console</h2><p class="text-sm text-black/55 dark:text-white/55">Try: "Suggest a refined desk setup under $700"</p></div>
+    <div id="page-chat-messages" class="chat-messages min-h-[420px]"><div class="chat-bubble bot">Hello. What are you shopping for today?</div></div>
+    <form id="page-chat-form" class="flex gap-3 border-t border-black/10 p-4 dark:border-white/10"><input id="page-chat-input" class="input flex-1" placeholder="Ask the assistant..." required><button class="btn-primary">Send</button></form>
+  </div>
+</section>
+{% endblock %}

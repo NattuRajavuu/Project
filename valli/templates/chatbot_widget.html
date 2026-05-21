@@ -1,0 +1,23 @@
+<section class="fixed bottom-5 right-5 z-50">
+  <button id="chat-toggle" class="grid h-14 w-14 place-items-center rounded-full bg-black text-xs font-black text-white shadow-2xl transition hover:scale-105 dark:bg-white dark:text-black">AI</button>
+  <div id="chat-window" class="chat-window hidden">
+    <div class="flex items-center justify-between border-b border-black/10 p-4 dark:border-white/10">
+      <div><p class="font-black">Luxe Chat</p><p class="text-xs text-black/50 dark:text-white/50">Online AI shopping assistant</p></div>
+      <button id="chat-close" class="icon-btn">X</button>
+    </div>
+    <div id="chat-messages" class="chat-messages">
+      <div class="chat-bubble bot">Welcome. Ask for recommendations, product comparisons, shipping, returns, or checkout help.</div>
+    </div>
+    <div class="border-t border-black/10 p-3 dark:border-white/10">
+      <div class="mb-2 flex flex-wrap gap-2">
+        <button class="suggestion" data-prompt="Suggest premium watches">Premium watches</button>
+        <button class="suggestion" data-prompt="What should I buy for a desk setup?">Desk setup</button>
+        <button class="suggestion" data-prompt="What is the return policy?">Returns</button>
+      </div>
+      <form id="chat-form" class="flex gap-2">
+        <input id="chat-input" class="input min-w-0 flex-1" placeholder="Ask anything..." autocomplete="off" required>
+        <button class="btn-primary !min-h-11 !px-4" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+</section>

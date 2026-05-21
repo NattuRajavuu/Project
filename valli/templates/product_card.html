@@ -1,0 +1,20 @@
+<article class="group overflow-hidden rounded-[2rem] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-2xl dark:border-white/10 dark:bg-white/10">
+  <a href="{{ url_for('products.product_details', product_id=product.id) }}">
+    <img class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105" src="{{ product.image }}" alt="{{ product.name }}" loading="lazy">
+  </a>
+  <div class="p-5">
+    <div class="mb-3 flex items-center justify-between text-xs font-bold text-black/50 dark:text-white/50">
+      <span class="rounded-full bg-black/5 px-3 py-1 dark:bg-white/10">{{ product.tag }}</span>
+      <span>{{ product.rating }} rating</span>
+    </div>
+    <a class="text-lg font-black hover:underline" href="{{ url_for('products.product_details', product_id=product.id) }}">{{ product.name }}</a>
+    <p class="mt-2 min-h-12 text-sm leading-6 text-black/55 dark:text-white/55">{{ product.description }}</p>
+    <div class="mt-5 flex items-center justify-between gap-3">
+      <strong class="text-lg">{{ money(product.price) }}</strong>
+      <div class="flex gap-2">
+        <form method="post" action="{{ url_for('products.wishlist_toggle', product_id=product.id) }}"><button class="icon-btn" type="submit">Wish</button></form>
+        <form method="post" action="{{ url_for('products.add_to_cart', product_id=product.id) }}"><button class="icon-btn bg-black text-white dark:bg-white dark:text-black" type="submit">Add</button></form>
+      </div>
+    </div>
+  </div>
+</article>

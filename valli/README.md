@@ -1,78 +1,48 @@
-# Luxe Atelier
+# Luxe Atelier Python AI Commerce
 
-A premium React + Vite ecommerce experience with a Python Flask REST backend, Tailwind CSS, Framer Motion, cart and wishlist state, dark mode, checkout simulation, and an offline-first Ollama shopping assistant.
+A fully Python-based premium e-commerce site with Flask, Jinja templates, Tailwind CDN styling, session-backed cart and wishlist flows, and an online AI chatbot service.
 
-## Run with Python
-
-This repo now includes a Python-runnable static version that does not require Node, npm, Flask, or pip.
+## Run
 
 ```bash
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
 python app.py
 ```
 
 Open:
 
 ```text
-http://localhost:8000
+http://127.0.0.1:8000
 ```
 
-## Run locally
+## Environment
 
-```bash
-npm install
-npm run dev
+Add keys to `.env`:
+
+```text
+OPENAI_API_KEY=
+GEMINI_API_KEY=
+CLAUDE_API_KEY=
+SECRET_KEY=change-me-in-production
 ```
 
-## Backend API
+OpenAI is the primary provider. Gemini and Claude are supported by the Python router when their keys are configured. If no provider key is available, the chatbot uses a local fallback so the site remains usable.
 
-The Flask backend lives in `backend/` and exposes:
+## Routes
 
-- `GET /api/products`
-- `GET /api/products/<id>`
+- `/`
+- `/products`
+- `/product/<id>`
+- `/cart`
+- `/checkout`
+- `/login`
+- `/register`
+- `/profile`
+- `/wishlist`
+- `/chatbot`
 - `POST /api/chat`
-- `GET /api/health`
+- `POST /api/chat/stream`
 
-Install the backend dependencies and start the API server:
-
-```bash
-pip install -r backend/requirements.txt
-python backend/app.py
-```
-
-For the local LLM assistant, install Ollama and run a model in another terminal:
-
-```bash
-ollama run llama3
-```
-
-If Ollama is not running, `/api/chat` falls back to a local rule-based product/support assistant so the UI remains usable offline.
-
-## Frontend
-
-Start the frontend in another terminal:
-
-```bash
-npm install
-npm run dev
-```
-
-The Vite dev server proxies `/api` requests to `http://127.0.0.1:5000`.
-The chatbot UI is a floating bottom-right assistant with chat history, typing state, product recommendations, and dark/light support.
-
-## Build
-
-```bash
-npm run build
-```
-
-## Pages
-
-- Home
-- Product listing
-- Product details
-- Shopping cart
-- Checkout
-- Login / register
-- User profile dashboard
-- Wishlist
-- Order success
+No React or Node.js is required.
