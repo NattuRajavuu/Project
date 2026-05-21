@@ -1,0 +1,361 @@
+Use this as a master prompt for Codex / GPT coding inside Visual Studio Code to generate a full Python project about the Marvel Comics universe in comic-book style.
+
+---
+
+# Prompt for Codex
+
+Create a complete Python application called **MarvelVerse Explorer**.
+
+The application must run inside Visual Studio Code using Python 3.12+.
+
+Style the entire experience like a cinematic Marvel comic book encyclopedia with animated comic panels, bold typography, glowing effects, and immersive transitions.
+
+## Main Goal
+
+Build an interactive Marvel Universe explorer that explains:
+
+* Marvel characters
+* Marvel movies
+* Marvel TV series
+* Marvel comics
+* Marvel teams
+* Marvel timelines
+* Powers and abilities
+* Villains
+* Multiverse connections
+
+The application should feel like a professional comic-book streaming encyclopedia.
+
+---
+
+# Technical Requirements
+
+## Tech Stack
+
+Use:
+
+* Python
+* Flask OR FastAPI
+* HTML
+* CSS
+* JavaScript
+* SQLite database
+* Jinja templates
+* Bootstrap or TailwindCSS
+* Marvel-inspired comic UI
+
+Optional:
+
+* GSAP animations
+* Particle effects
+* Background music toggle
+* Motion comic transitions
+
+---
+
+# Features
+
+## 1. Home Page
+
+Create a stunning animated homepage with:
+
+* Marvel-style hero banner
+* Animated comic panels
+* Floating superhero cards
+* Cinematic intro
+* Search bar
+* Featured heroes section
+* Featured movies section
+
+Add transitions like:
+
+* panel swipe
+* comic zoom
+* glowing hover effects
+* cinematic fades
+
+---
+
+# 2. Character Encyclopedia
+
+Create pages for major Marvel characters including:
+
+* Iron Man
+* Spider-Man
+* Thor
+* Hulk
+* Doctor Strange
+* Captain America
+* Black Panther
+* Scarlet Witch
+* Loki
+* Deadpool
+* Wolverine
+* Thanos
+* Daredevil
+* Moon Knight
+* Punisher
+* Ghost Rider
+* Venom
+* Magneto
+* Jean Grey
+* Silver Surfer
+
+Each character page must include:
+
+* Origin story
+* Powers
+* Weaknesses
+* Teams
+* Enemies
+* Famous comic arcs
+* MCU appearances
+* Variants from multiverse
+* Timeline appearance
+* Gallery section
+* Comic-style cards
+
+Add animated power meters.
+
+---
+
+# 3. Marvel Movies Section
+
+Create a complete MCU movie timeline including:
+
+* Phase 1
+* Phase 2
+* Phase 3
+* Phase 4
+* Phase 5
+* Upcoming Phase 6
+
+Each movie page must include:
+
+* Synopsis
+* Cast
+* Villain
+* Post-credit scenes
+* Timeline placement
+* Connections to other movies
+* Comic inspiration
+* Ratings
+* Trailer embed section
+
+Include cinematic cards with hover animation.
+
+---
+
+# 4. Marvel Series Section
+
+Include Disney+ and older Marvel shows:
+
+* Loki
+* WandaVision
+* Moon Knight
+* Daredevil
+* Jessica Jones
+* Agents of SHIELD
+* Punisher
+* Ms. Marvel
+* What If...?
+* X-Men animated series
+
+Each page should explain:
+
+* Plot
+* Character arcs
+* Season breakdown
+* Timeline relevance
+* Easter eggs
+* Multiverse impact
+
+---
+
+# 5. Comics Library
+
+Create a comic database with:
+
+* Secret Wars
+* Civil War
+* Infinity Gauntlet
+* House of M
+* Old Man Logan
+* Planet Hulk
+* Spider-Verse
+* Age of Apocalypse
+* Secret Invasion
+* World War Hulk
+
+For each comic:
+
+* summary
+* major deaths
+* important battles
+* adaptations
+* reading order
+* key characters
+
+Display comics in animated comic-book shelves.
+
+---
+
+# 6. Search System
+
+Build a live search feature that can search:
+
+* characters
+* comics
+* movies
+* shows
+* villains
+
+Add instant results dropdown.
+
+---
+
+# 7. Marvel Timeline
+
+Create an interactive timeline visualization showing:
+
+* chronological MCU order
+* branching multiverse timelines
+* incursions
+* alternate universes
+
+Use animated lines and glowing nodes.
+
+---
+
+# 8. Database
+
+Use SQLite.
+
+Create tables for:
+
+* characters
+* movies
+* shows
+* comics
+* powers
+* teams
+* appearances
+
+Populate with sample Marvel data.
+
+---
+
+# 9. Admin Panel
+
+Create an admin dashboard where users can:
+
+* add new characters
+* add movies
+* edit comics
+* upload images
+* manage timelines
+
+Use secure login authentication.
+
+---
+
+# 10. UI Design
+
+The UI must look like a premium comic-book app.
+
+Requirements:
+
+* dark mode
+* red/gold Marvel-inspired palette
+* comic typography
+* animated cards
+* parallax backgrounds
+* glowing buttons
+* responsive mobile design
+
+---
+
+# 11. Bonus Features
+
+If possible, add:
+
+* AI chatbot called “Jarvis”
+* Voice narration
+* Character battle simulator
+* Infinity Gauntlet animation
+* Marvel quiz mode
+* Background Avengers music toggle
+* 3D hologram cards
+* Particle explosion effects
+
+---
+
+# 12. File Structure
+
+Generate complete production-ready structure:
+
+* app.py
+* templates/
+* static/css/
+* static/js/
+* static/images/
+* database/
+* routes/
+* models/
+* assets/
+
+Include:
+
+* requirements.txt
+* README.md
+* setup instructions
+
+---
+
+# 13. Code Quality
+
+Requirements:
+
+* clean architecture
+* modular code
+* comments
+* responsive design
+* reusable components
+* optimized animations
+* proper routing
+* error handling
+
+---
+
+# 14. Startup Instructions
+
+At the end, automatically provide:
+
+1. Installation steps
+2. VS Code setup
+3. Virtual environment setup
+4. Dependency installation
+5. Database initialization
+6. Run commands
+
+---
+
+# 15. Important
+
+The generated project must:
+
+* run without syntax errors
+* be visually impressive
+* contain realistic Marvel information
+* include at least 20+ characters
+* include at least 30+ movies
+* include at least 15+ comics
+* include animated comic styling throughout
+
+Generate FULL code for every file.
+
+i want this as a website running using python
+
+add real images to the respective characters and movie poster for movies and series
+
+add trailer videos and glimpses of all marvel universe and add simple interactions with charactyers to ensure its engaging and also add comic cover page also.change color theme according to the hero, movies, series or comic when i select the character and other options

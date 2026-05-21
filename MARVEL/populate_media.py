@@ -81,22 +81,25 @@ MOVIE_PAGES = {
 
 
 SHOW_PAGES = {
-    "Loki": "Loki (TV series)",
-    "WandaVision": "WandaVision",
-    "Moon Knight": "Moon Knight (TV series)",
-    "Daredevil": "Daredevil (TV series)",
-    "Jessica Jones": "Jessica Jones (TV series)",
-    "Agents of SHIELD": "Agents of S.H.I.E.L.D.",
-    "Punisher": "The Punisher (TV series)",
-    "Ms. Marvel": "Ms. Marvel (miniseries)",
-    "What If...?": "What If...? (TV series)",
-    "X-Men animated series": "X-Men: The Animated Series",
-    "Hawkeye": "Hawkeye (miniseries)",
-    "She-Hulk: Attorney at Law": "She-Hulk: Attorney at Law",
+    "Loki": "https://www.marvel.com/tv-shows/loki",
+    "WandaVision": "https://www.marvel.com/tv-shows/wandavision/1",
+    "Moon Knight": "https://www.marvel.com/tv-shows/moon-knight/1",
+    "Daredevil": "https://www.marvel.com/tv-shows/marvel-s-daredevil/3",
+    "Jessica Jones": "https://www.marvel.com/tv-shows/marvel-s-jessica-jones/3",
+    "Agents of SHIELD": "https://www.marvel.com/articles/tv-shows/agents-of-shield-season-7-time-travel-poster",
+    "Punisher": "https://www.marvel.com/tv-shows/marvel-s-the-punisher/2",
+    "Ms. Marvel": "https://www.marvel.com/tv-shows/ms-marvel/1",
+    "What If...?": "https://www.marvel.com/tv-shows/animation/what-if/1",
+    "X-Men animated series": "https://www.marvel.com/tv-shows/x-men-97/1",
+    "Hawkeye": "https://www.marvel.com/tv-shows/hawkeye/1",
+    "She-Hulk: Attorney at Law": "https://www.marvel.com/tv-shows/she-hulk-attorney-at-law/1",
 }
 
 
 def fetch_thumbnail(page_title, size=900):
+    if page_title.startswith("http://") or page_title.startswith("https://"):
+        return fetch_page_image(page_title)
+
     og_image = fetch_open_graph_image(page_title)
     if og_image:
         return og_image
@@ -126,6 +129,10 @@ def fetch_thumbnail(page_title, size=900):
 def fetch_open_graph_image(page_title):
     path = urllib.parse.quote(page_title.replace(" ", "_"), safe="._()")
     url = f"https://en.wikipedia.org/wiki/{path}"
+    return fetch_page_image(url)
+
+
+def fetch_page_image(url):
     request = urllib.request.Request(url, headers=HEADERS)
     with urllib.request.urlopen(request, timeout=15) as response:
         html = response.read().decode("utf-8", errors="ignore")
