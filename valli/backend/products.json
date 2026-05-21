@@ -1,0 +1,92 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Premium Wireless Headphones",
+      "category": "Electronics",
+      "price": "$89.99",
+      "description": "High-quality wireless headphones with noise cancellation and 30-hour battery life",
+      "availability": "In Stock",
+      "shipping_info": "2-3 business days",
+      "rating": 4.8,
+      "reviews": 234
+    },
+    {
+      "id": 2,
+      "name": "Stainless Steel Water Bottle",
+      "category": "Lifestyle",
+      "price": "$24.99",
+      "description": "Durable 500ml water bottle, keeps drinks cold for 24 hours or hot for 12 hours",
+      "availability": "In Stock",
+      "shipping_info": "1-2 business days",
+      "rating": 4.6,
+      "reviews": 156
+    },
+    {
+      "id": 3,
+      "name": "Yoga Mat with Carrying Strap",
+      "category": "Fitness",
+      "price": "$29.99",
+      "description": "Non-slip 6mm thick yoga mat, eco-friendly material, perfect for all fitness levels",
+      "availability": "In Stock",
+      "shipping_info": "2-3 business days",
+      "rating": 4.7,
+      "reviews": 289
+    },
+    {
+      "id": 4,
+      "name": "Portable USB-C Charger",
+      "category": "Electronics",
+      "price": "$34.99",
+      "description": "Fast-charging 20000mAh power bank with dual USB-C ports",
+      "availability": "In Stock",
+      "shipping_info": "1-2 business days",
+      "rating": 4.5,
+      "reviews": 412
+    },
+    {
+      "id": 5,
+      "name": "Cotton T-Shirt Pack",
+      "category": "Clothing",
+      "price": "$39.99",
+      "description": "Pack of 3 premium quality 100% organic cotton t-shirts",
+      "availability": "In Stock",
+      "shipping_info": "2-3 business days",
+      "rating": 4.4,
+      "reviews": 178
+    },
+    {
+      "id": 6,
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "price": "$19.99",
+      "description": "Ergonomic wireless mouse with 18-month battery life",
+      "availability": "In Stock",
+      "shipping_info": "1-2 business days",
+      "rating": 4.3,
+      "reviews": 521
+    },
+    {
+      "id": 7,
+      "name": "LED Desk Lamp",
+      "category": "Home & Office",
+      "price": "$44.99",
+      "description": "Adjustable LED desk lamp with touch control and USB charging port",
+      "availability": "In Stock",
+      "shipping_info": "2-3 business days",
+      "rating": 4.6,
+      "reviews": 203
+    },
+    {
+      "id": 8,
+      "name": "Bamboo Cutting Board Set",
+      "category": "Kitchen",
+      "price": "$35.99",
+      "description": "Set of 3 eco-friendly bamboo cutting boards with storage tray",
+      "availability": "Low Stock",
+      "shipping_info": "3-4 business days",
+      "rating": 4.5,
+      "reviews": 87
+    }
+  ]
+}

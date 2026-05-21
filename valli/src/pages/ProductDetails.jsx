@@ -6,19 +6,35 @@ import ProductCard from '../components/ProductCard';
 import QuantityControl from '../components/QuantityControl';
 import { useCart } from '../context/CartContext';
 import { products } from '../data/products';
+import { fetchProduct } from '../utils/api';
 import { formatCurrency } from '../utils/formatCurrency';
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const product = products.find((item) => item.id === id);
+  const fallbackProduct = products.find((item) => item.id === id);
+  const [product, setProduct] = useState(fallbackProduct);
   const [quantity, setQuantity] = useState(1);
-  const [image, setImage] = useState(product?.image);
+  const [image, setImage] = useState(fallbackProduct?.image);
   const { addToCart, toggleWishlist, wishlist } = useCart();
 
   useEffect(() => {
-    setImage(product?.image);
+    let active = true;
+    setProduct(fallbackProduct);
+    setImage(fallbackProduct?.image);
     setQuantity(1);
-  }, [product]);
+
+    fetchProduct(id)
+      .then((data) => {
+        if (!active) return;
+        setProduct(data);
+        setImage(data.image);
+      })
+      .catch(() => {});
+
+    return () => {
+      active = false;
+    };
+  }, [fallbackProduct, id]);
 
   if (!product) {
     return (

@@ -671,6 +671,53 @@ document.querySelector('#navSearch').addEventListener('submit', (event) => {
   location.hash = `products${value ? `?search=${encodeURIComponent(value)}` : ''}`;
 });
 
+const chatbotWindow = document.querySelector('#chatbotWindow');
+const chatbotMessages = document.querySelector('#chatbotMessages');
+const chatbotInput = document.querySelector('#chatbotInput');
+
+function addChatMessage(text, role) {
+  const message = document.createElement('div');
+  message.className = `chat-message ${role}`;
+  message.textContent = text;
+  chatbotMessages.appendChild(message);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+document.querySelector('#chatbotToggle').addEventListener('click', () => {
+  chatbotWindow.hidden = !chatbotWindow.hidden;
+  if (!chatbotWindow.hidden) chatbotInput.focus();
+});
+
+document.querySelector('#chatbotClose').addEventListener('click', () => {
+  chatbotWindow.hidden = true;
+});
+
+document.querySelector('#chatbotForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const message = chatbotInput.value.trim();
+  if (!message) return;
+
+  addChatMessage(message, 'user');
+  chatbotInput.value = '';
+  const typingId = `typing-${Date.now()}`;
+  addChatMessage('Thinking...', 'assistant');
+  chatbotMessages.lastElementChild.dataset.typingId = typingId;
+
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message }),
+    });
+    const data = await response.json();
+    const typing = chatbotMessages.querySelector(`[data-typing-id="${typingId}"]`);
+    if (typing) typing.textContent = data.reply || data.response || 'I can help with products, shipping, returns, and checkout.';
+  } catch {
+    const typing = chatbotMessages.querySelector(`[data-typing-id="${typingId}"]`);
+    if (typing) typing.textContent = 'I could not reach the local chat API. Make sure python app.py is still running.';
+  }
+});
+
 addEventListener('hashchange', render);
 addEventListener('load', () => {
   updateTheme();

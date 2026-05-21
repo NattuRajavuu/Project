@@ -8,6 +8,7 @@ import ProductCard from '../components/ProductCard';
 import SectionHeading from '../components/SectionHeading';
 import SkeletonGrid from '../components/SkeletonGrid';
 import { categories, products } from '../data/products';
+import { fetchProducts } from '../utils/api';
 
 export default function Products() {
   const [params, setParams] = useSearchParams();
@@ -15,11 +16,29 @@ export default function Products() {
   const [category, setCategory] = useState(params.get('category') || 'All');
   const [search, setSearch] = useState(params.get('search') || '');
   const [sort, setSort] = useState('featured');
+  const [apiProducts, setApiProducts] = useState(products);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 500);
-    return () => clearTimeout(timer);
-  }, []);
+    let active = true;
+    let timer;
+    setLoading(true);
+
+    fetchProducts({ search, category, sort })
+      .then((data) => {
+        if (active) setApiProducts(data.products || []);
+      })
+      .catch(() => {
+        if (active) setApiProducts(products);
+      })
+      .finally(() => {
+        if (active) timer = setTimeout(() => setLoading(false), 350);
+      });
+
+    return () => {
+      active = false;
+      clearTimeout(timer);
+    };
+  }, [category, search, sort]);
 
   useEffect(() => {
     const next = {};
@@ -29,7 +48,7 @@ export default function Products() {
   }, [category, search, setParams]);
 
   const filtered = useMemo(() => {
-    const result = products
+    const result = apiProducts
       .filter((product) => category === 'All' || product.category === category)
       .filter((product) => product.name.toLowerCase().includes(search.toLowerCase()) || product.description.toLowerCase().includes(search.toLowerCase()));
 
@@ -39,7 +58,7 @@ export default function Products() {
       if (sort === 'rating') return b.rating - a.rating;
       return 0;
     });
-  }, [category, search, sort]);
+  }, [apiProducts, category, search, sort]);
 
   return (
     <PageShell>
